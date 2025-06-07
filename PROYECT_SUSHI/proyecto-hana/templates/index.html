@@ -1,0 +1,191 @@
+{%extends 'base.html'%}
+{%block content%}
+
+		<main id="index">
+		<!-- Start Nuestra Propuesta Section -->
+		 <section id="nuestra-propuesta">
+			<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Nuestra Propuesta</h1>
+								<p class="mb-4">
+									En Hana celebramos los placeres de la vida a través de una experiencia gastronómica 
+									que cautiva todos tus sentidos. Inspirados en las tradiciones culinarias japonesas, 
+									cada detalle está cuidadosamente pensado para los verdaderos amantes de la gastronomía.
+								</p>
+								<div class="social-media-section">
+									<a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
+									<a href="https://www.facebook.com/?locale=es_LA"><i class="bi bi-facebook"></i></a>
+									<a href="https://www.whatsapp.com/?lang=es_LA"><i class="bi bi-whatsapp"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Nuestra Propuesta Section -->
+
+		<!-- Start Menu Section -->
+		<section id="menu"> 
+			<div class="product-section">
+				<div class="container">
+					<div class="row">
+
+						<!-- Start Column 1 -->
+						<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
+							<h2 class="mb-4 section-title">Nuestro Menú</h2>
+							<p class="mb-4">Adentrate en el mundo de la más fina cocina japonesa. </p>
+							<p><a href="{{ url_for('shop') }}" class="btn">Ver Más</a></p>
+						</div> 
+						<!-- End Column 1 -->
+
+						<!-- Start Column 2 -->
+						
+						<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+							<a class="product-item" href="{{ url_for('cart') }}">
+								<img src= "{{menu1['foto']}}" class="img-fluid product-thumbnail">
+								<h3 class="product-title">{{ menu1['nombre'] }}</h3>
+								<strong class="product-price">${{ menu1['precio'] }}</strong>
+
+								<span class="icon-cross">
+									<img src="{{ url_for('static', filename='images/simbolo-mas.svg') }}" class="img-fluid">
+								</span>
+							</a>
+						</div> 
+						
+						<!-- End Column 2 -->
+
+						<!-- Start Column 3 -->
+						<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+							<a class="product-item" href="{{ url_for('cart') }}">
+								<img src="{{menu2['foto']}}" class="img-fluid product-thumbnail">
+								<h3 class="product-title">{{ menu2['nombre'] }}</h3>
+								<strong class="product-price">${{ menu2['precio'] }}</strong>
+
+								<span class="icon-cross">
+									<img src="{{ url_for('static', filename='images/simbolo-mas.svg') }}" class="img-fluid">
+								</span>
+							</a>
+						</div>
+						<!-- End Column 3 -->
+
+						<!-- Start Column 4 -->
+						<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+							<a class="product-item" href="{{ url_for('cart') }}">
+								<img src="{{menu3['foto']}}" class="img-fluid product-thumbnail">
+								<h3 class="product-title">{{ menu3['nombre'] }}</h3>
+								<strong class="product-price">${{ menu3['precio'] }}</strong>
+
+								<span class="icon-cross">
+									<img src="{{ url_for('static', filename='images/simbolo-mas.svg') }}" class="img-fluid">
+								</span>
+							</a>
+						</div>
+						<!-- End Column 4 -->
+
+						<!-- Start Column 5 -->
+						<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+							<a class="product-item" href="{{ url_for('cart') }}">
+								<img src="{{menu4['foto']}}" class="img-fluid product-thumbnail">
+								<h3 class="product-title">{{ menu4['nombre'] }}</h3>
+								<strong class="product-price">${{ menu4['precio'] }}</strong>
+
+								<span class="icon-cross">
+									<img src="{{ url_for('static', filename='images/simbolo-mas.svg') }}" class="img-fluid">
+								</span>
+							</a>
+						</div>
+						<!-- End Column 5 -->
+
+						<!-- Start Column 6 -->
+						<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+							<a class="product-item" href="{{ url_for('cart') }}">
+								<img src="{{menu5['foto']}}" class="img-fluid product-thumbnail">
+								<h3 class="product-title">{{ menu5['nombre'] }}</h3>
+								<strong class="product-price">${{ menu5['precio'] }}</strong>
+
+								<span class="icon-cross">
+									<img src="{{ url_for('static', filename='images/simbolo-mas.svg') }}" class="img-fluid">
+								</span>
+							</a>
+						</div>
+						<!-- End Column 6 -->
+
+						<!-- Start Column 7 -->
+						<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+							<a class="product-item" href="{{ url_for('cart') }}">
+								<img src="{{menu6['foto']}}" class="img-fluid product-thumbnail">
+								<h3 class="product-title">{{ menu6['nombre'] }}</h3>
+								<strong class="product-price">${{ menu6['precio'] }}</strong>
+
+								<span class="icon-cross">
+									<img src="{{ url_for('static', filename='images/simbolo-mas.svg') }}" class="img-fluid">
+								</span>
+							</a>
+						</div>
+						<!-- End Column 7 -->
+
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Menu Section -->
+
+		<div class="grid-container">
+			<!-- Start Reservaciones Section -->
+			<section id="reservaciones">
+			<div class="why-choose-section"">
+				<div class="container">
+					<div class="row-justify-content-between">
+						<div class="col-lg-6">
+							<h1 class="section-title">Reservaciones</h1>
+							<p>
+							En Hana Sushi, cada detalle está pensado para brindarte una experiencia inolvidable.
+							Te invitamos a reservar tu mesa y sumergirte en la delicadeza de la auténtica cocina 
+							japonesa, en un ambiente de serenidad y excelencia. 
+							</p>
+						</div>
+						<div class="btn">
+							<a href="">Reservar Ahora</a> <!--poner un url_for a reservaciones-->
+						</div>
+					</div>
+				</div>
+			</div>
+			</section>
+			<!-- End Reservaciones Section -->
+
+			<!-- Start Contacto Section -->
+			<section id="contacto">
+				<div class="we-help-section">
+					<div class="container">
+						<div class="row justify-content-between">
+							<div class="col-lg-5 ps-lg-5">
+								<h2 class="section-title mb-4">Nuestro Contacto</h2>
+								<p>Por cualquier consulta o comentario no dudes en contactarnos</p>
+
+								<ul class="list-unstyled custom-list my-4">
+									<li>Av. Cabildo 800</li>
+									<li>info@hanasushi.com</li>
+									<li> Nuestras redes
+										<div class="social-icons mt-3">
+											<a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
+											<a href="https://www.facebook.com/?locale=es_LA"><i class="bi bi-facebook"></i></a>
+											<a href="https://www.whatsapp.com/?lang=es_LA"><i class="bi bi-whatsapp"></i></a>
+										</div>
+									</li>
+								</ul>
+								<a href="{{ url_for('contact') }}" class="btn">Ver Más</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End Contacto Section -->
+			<section id="foto-deco"></section>
+		</div>
+		</main>
+
+		{%endblock%}
