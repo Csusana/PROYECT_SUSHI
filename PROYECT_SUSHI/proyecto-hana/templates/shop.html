@@ -1,14 +1,13 @@
 {%extends 'base.html'%}
 {%block content%}
 		
-
 		<!-- Start Hero Section -->
 			<div class="hero">
 				<div class="container">
 					<div class="row justify-content-between">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
-								<h1>Shop</h1>
+								<h1>MENÚ DELIVERY</h1>
 							</div>
 						</div>
 						<div class="col-lg-7">
@@ -31,12 +30,13 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="{{i.foto}}" class="img-fluid product-thumbnail" data-bs-toggle="modal" data-bs-target="#modal{{ i.numero }}">
-							<h3 class="product-title">{{ i.nombre }}</h3>
+							<div class="product-info-container">
+								<h3 class="product-title">{{ i.nombre }}</h3>
+								<span class="icon-cross adjust-cross-position">
+									<img src="{{ url_for('static', filename='images/cross.svg', _external=True)}}" class="img-fluid">
+								</span>
+							</div>
 							<strong class="product-price">${{ i.precio }}</strong>
-
-							<span class="icon-cross">
-								<img src="{{ url_for('static', filename='images/cross.svg', _external=True)}}" class="img-fluid">
-							</span>
 						</a>
 						<!-- Modal -->
 						<div class="modal fade" id="modal{{ i.numero }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -47,12 +47,12 @@
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 								</div>
 								<div class="modal-body">
-									<img src="{{ i.foto }}" alt="">
+									<img src="{{ i.foto }}" alt="" class="img-fluid">
 									<h4>{{ i.descripcion }}</h4>
 									<strong class="product-price">${{ i.precio }}</strong>
 								</div>
 								<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 								</div>
 							</div>
 							</div>
@@ -67,12 +67,13 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="{{i.foto}}" class="img-fluid product-thumbnail" data-bs-toggle="modal" data-bs-target="#modal{{ i.numero }}">
-							<h3 class="product-title">{{ i.nombre }}</h3>
+							<div class="product-info-container">
+								<h3 class="product-title">{{ i.nombre }}</h3>
+								<span class="icon-cross adjust-cross-position">
+									<img src="{{ url_for('static', filename='images/cross.svg', _external=True)}}" class="img-fluid">
+								</span>
+							</div>
 							<strong class="product-price">${{ i.precio }}</strong>
-
-							<span class="icon-cross">
-								<img src="{{ url_for('static', filename='images/cross.svg', _external=True)}}" class="img-fluid">
-							</span>
 						</a>
 						<!-- Modal -->
 						<div class="modal fade" id="modal{{ i.numero }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,12 +84,12 @@
 								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 								</div>
 								<div class="modal-body">
-									<img src="{{ i.foto }}" alt="">
+									<img src="{{ i.foto }}" alt="" class="img-fluid">
 									<h4>{{ i.descripcion }}</h4>
 									<strong class="product-price">${{ i.precio }}</strong>
 								</div>
 								<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 								</div>
 							</div>
 							</div>
@@ -103,12 +104,13 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="{{i.foto}}" class="img-fluid product-thumbnail" data-bs-toggle="modal" data-bs-target="#modal{{ i.numero }}">
-							<h3 class="product-title">{{ i.nombre }}</h3>
+							<div class="product-info-container">
+								<h3 class="product-title">{{ i.nombre }}</h3>
+								<span class="icon-cross adjust-cross-position">
+									<img src="{{ url_for('static', filename='images/cross.svg', _external=True)}}" class="img-fluid">
+								</span>
+							</div>
 							<strong class="product-price">${{ i.precio }}</strong>
-
-							<span class="icon-cross">
-								<img src="{{ url_for('static', filename='images/cross.svg', _external=True)}}" class="img-fluid">
-							</span>
 						</a>
 						<!-- Modal -->
 						<div class="modal fade" id="modal{{ i.numero }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -139,12 +141,13 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="{{i.foto}}" class="img-fluid product-thumbnail" data-bs-toggle="modal" data-bs-target="#modal{{ i.numero }}">
-							<h3 class="product-title">{{ i.nombre }}</h3>
+							<div class="product-info-container">
+								<h3 class="product-title">{{ i.nombre }}</h3>
+								<span class="icon-cross adjust-cross-position">
+									<img src="{{ url_for('static', filename='images/cross.svg', _external=True)}}" class="img-fluid">
+								</span>
+							</div>
 							<strong class="product-price">${{ i.precio }}</strong>
-
-							<span class="icon-cross">
-								<img src="{{ url_for('static', filename='images/cross.svg', _external=True)}}" class="img-fluid">
-							</span>
 						</a>
 						<!-- Modal -->
 						<div class="modal fade" id="modal{{ i.numero }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -175,12 +178,13 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="{{i.foto}}" class="img-fluid product-thumbnail" data-bs-toggle="modal" data-bs-target="#modal{{ i.numero }}">
-							<h3 class="product-title">{{ i.nombre }}</h3>
+							<div class="product-info-container">
+								<h3 class="product-title">{{ i.nombre }}</h3>
+								<span class="icon-cross adjust-cross-position">
+									<img src="{{ url_for('static', filename='images/cross.svg', _external=True)}}" class="img-fluid">
+								</span>
+							</div>
 							<strong class="product-price">${{ i.precio }}</strong>
-
-							<span class="icon-cross">
-								<img src="{{ url_for('static', filename='images/cross.svg', _external=True)}}" class="img-fluid">
-							</span>
 						</a>
 						<!-- Modal -->
 						<div class="modal fade" id="modal{{ i.numero }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -211,12 +215,13 @@
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
 						<a class="product-item" href="#">
 							<img src="{{i.foto}}" class="img-fluid product-thumbnail" data-bs-toggle="modal" data-bs-target="#modal{{ i.numero }}">
-							<h3 class="product-title">{{ i.nombre }}</h3>
+							<div class="product-info-container">
+								<h3 class="product-title">{{ i.nombre }}</h3>
+								<span class="icon-cross adjust-cross-position">
+									<img src="{{ url_for('static', filename='images/cross.svg', _external=True)}}" class="img-fluid">
+								</span>
+							</div>
 							<strong class="product-price">${{ i.precio }}</strong>
-
-							<span class="icon-cross">
-								<img src="{{ url_for('static', filename='images/cross.svg', _external=True)}}" class="img-fluid">
-							</span>
 						</a>
 						<!-- Modal -->
 						<div class="modal fade" id="modal{{ i.numero }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
