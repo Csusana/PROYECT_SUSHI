@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Flask, render_template, url_for, request, redirect, flash
 import os
 
@@ -337,6 +338,16 @@ def registration():
     return render_template("registration.html")
 
 
+@app.route("/checkout")
+def checkout():
+    return render_template("checkout.html")
+
+
+@app.route("/thankyou")
+def thankyou():
+    return render_template("thankyou.html")
+
+
 if __name__ == "__main__":
     # esto solo funca usando python3 app.py
-    app.run("localhost", port=8081, debug=True)
+    app.run("0.0.0.0", port=8081, debug=True)
