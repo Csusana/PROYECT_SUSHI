@@ -1,0 +1,99 @@
+<!-- /*
+* Bootstrap 5
+* Template Name: Furni
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+{%extends 'base.html'%}
+{%block head%}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/thankyou.css') }}">
+{%endblock%}
+{%block content%}
+  <div class="thank-you-page">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 text-center">
+          <div class="card bg-dark py-5 px-4">
+            <div class="success-icon mb-4">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="#C53030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 4L12 14.01L9 11.01" stroke="#C53030" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h1 class="display-4 text-white mb-3">¡Gracias por tu pedido!</h1>
+            <p class="lead text-white-50 mb-4">Tu pedido ha sido procesado correctamente. Recibirás un correo electrónico con los detalles de tu compra.</p>
+            
+            <div class="order-details bg-black bg-opacity-50 p-4 rounded mb-4">
+              <h5 class="text-white mb-3">Resumen del pedido</h5>
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-white-50">Número de pedido:</span>
+                <span class="text-white" id="order-number">--</span>
+              </div>
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-white-50">Fecha de entrega:</span>
+                <span class="text-white" id="delivery-date-display">--/--/----</span>
+              </div>
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-white-50">Horario:</span>
+                <span class="text-white" id="delivery-time-display">--:--</span>
+              </div>
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-white-50">Cliente:</span>
+                <span class="text-white" id="customer-name">--</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="text-white-50">Dirección:</span>
+                <span class="text-white" id="customer-address">--</span>
+              </div>
+            </div>
+            
+            <div class="buttons">
+              <a href="/shop" class="btn btn-outline-light mb-3 mb-sm-0 me-sm-3">Volver al menú</a>
+              <a href="/" class="btn btn-danger">Ir al inicio</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 获取本地存储的订单信息
+      const deliveryDate = localStorage.getItem('deliveryDate');
+      const deliveryTime = localStorage.getItem('deliveryTime');
+      const customerInfo = JSON.parse(localStorage.getItem('customerInfo') || '{}');
+      
+      // 显示订单号
+      if (customerInfo.orderNumber) {
+        document.getElementById('order-number').textContent = customerInfo.orderNumber;
+      }
+      
+      // 显示配送日期和时间
+      if (deliveryDate) {
+        const formattedDate = new Date(deliveryDate).toLocaleDateString('es-ES');
+        document.getElementById('delivery-date-display').textContent = formattedDate;
+      }
+      
+      if (deliveryTime) {
+        document.getElementById('delivery-time-display').textContent = deliveryTime;
+      }
+      
+      // 显示客户信息
+      if (customerInfo.firstName) {
+        document.getElementById('customer-name').textContent = customerInfo.firstName + ' ' + customerInfo.lastName;
+        document.getElementById('customer-address').textContent = customerInfo.address;
+      }
+      
+      // 清空购物车和客户信息
+      localStorage.removeItem('cart');
+      // 保留客户信息供查看，但在1分钟后删除
+      setTimeout(function() {
+        localStorage.removeItem('customerInfo');
+        localStorage.removeItem('deliveryDate');
+        localStorage.removeItem('deliveryTime');
+      }, 60000);
+    });
+  </script>
+{%endblock%}
