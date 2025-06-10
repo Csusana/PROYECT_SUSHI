@@ -1,155 +1,347 @@
 {%extends 'base.html'%}
 {%block content%}
-		<!-- End Header/Navigation -->
-
-		<!-- Start Hero Section -->
-			<div class="hero">
-				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-5">
-							<div class="intro-excerpt">
-								<h1>Cart</h1>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		<!-- End Hero Section -->
-
-		
-
-		<div class="untree_co-section before-footer-section">
-            <div class="container">
-              <div class="row mb-5">
-                <form class="col-md-12" method="post">
-                  <div class="site-blocks-table">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th class="product-thumbnail">Image</th>
-                          <th class="product-name">Product</th>
-                          <th class="product-price">Price</th>
-                          <th class="product-quantity">Quantity</th>
-                          <th class="product-total">Total</th>
-                          <th class="product-remove">Remove</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="product-thumbnail">
-                            <img src="{{ url_for('static', filename='images/combinado-blue-sea-15.jpg') }}" alt="Image" class="img-fluid">
-                          </td>
-                          <td class="product-name">
-                            <h2 class="h5 text-black">Combinado blue sea 15 piezas </h2>
-                          </td>
-                          <td>$49.00</td>
-                          <td>
-                            <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                              <div class="input-group-prepend">
-                                <button class="btn btn-outline-black decrease" type="button">&minus;</button>
-                              </div>
-                              <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                              <div class="input-group-append">
-                                <button class="btn btn-outline-black increase" type="button">&plus;</button>
-                              </div>
-                            </div>
-        
-                          </td>
-                          <td>$49.00</td>
-                          <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-                        </tr>
-        
-                        <tr>
-                          <td class="product-thumbnail">
-                            <img src="{{ url_for('static', filename='images/combinado-veggie-30.png') }}" alt="Image" class="img-fluid">
-                          </td>
-                          <td class="product-name">
-                            <h2 class="h5 text-black">Combinado Bio-veggie 30 piezas</h2>
-                          </td>
-                          <td>$49.00</td>
-                          <td>
-                            <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                              <div class="input-group-prepend">
-                                <button class="btn btn-outline-black decrease" type="button">&minus;</button>
-                              </div>
-                              <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                              <div class="input-group-append">
-                                <button class="btn btn-outline-black increase" type="button">&plus;</button>
-                              </div>
-                            </div>
-        
-                          </td>
-                          <td>$49.00</td>
-                          <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </form>
-              </div>
-        
+  <div class="cart-page">
+    <div class="container py-5">
+      <!-- 删除原标题部分 -->
+      
+      <div class="row">
+        <!-- 购物车主要内容 -->
+        <div class="col-12">
+          <!-- 添加新标题位置 -->
+          <div class="row mb-4">
+            <div class="col-12 text-center">
+              <h1 class="text-white fw-bold">Carrito de Compras</h1>
+            </div>
+          </div>
+          
+          <!-- 日期和时间选择 -->
+          <div class="card bg-dark mb-4">
+            <div class="card-body p-4">
+              <h5 class="text-white mb-3">Información de entrega</h5>
               <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-white mb-2">Fecha de Entrega</label>
+                  <input type="date" class="form-control bg-dark text-white" id="delivery-date">
+                </div>
                 <div class="col-md-6">
-                  <div class="row mb-5">
-                    <div class="col-md-6 mb-3 mb-md-0">
-                      <button class="btn btn-black btn-sm btn-block">Update Cart</button>
-                    </div>
-                    <div class="col-md-6">
-                      <button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
-                    </div>
+                  <label class="text-white mb-2">Horario</label>
+                  <select class="form-control bg-dark text-white" id="delivery-time">
+                    <option value="">Seleccionar horario</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="20:00">20:00</option>
+                    <option value="21:00">21:00</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 购物车商品 -->
+          <div class="card bg-dark mb-4">
+            <div class="card-body p-4">
+              <h5 class="text-white mb-3">Productos</h5>
+              <div id="cart-items-container">
+                <!-- 购物车项目将通过JavaScript动态添加 -->
+                <!-- 空购物车状态 -->
+                <div class="text-center py-4 empty-cart-message">
+                  <img src="/static/images/empty-cart.svg" alt="Carrito vacío" class="mb-3" style="width: 80px; opacity: 0.5;">
+                  <h5 class="text-white-50">Su carrito está vacío</h5>
+                  <a href="/shop" class="btn btn-outline-light mt-3">Ver Menú</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 订单摘要 - 现在放在产品列表下方 -->
+          <div class="card bg-dark">
+            <div class="card-body p-4">
+              <h5 class="text-white mb-4">Resumen del pedido</h5>
+              
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="d-flex justify-content-between mb-2">
+                    <span class="text-white-50">Subtotal</span>
+                    <span class="text-white" id="cart-subtotal">$0.00</span>
                   </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <label class="text-black h4" for="coupon">Coupon</label>
-                      <p>Enter your coupon code if you have one.</p>
-                    </div>
-                    <div class="col-md-8 mb-3 mb-md-0">
-                      <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
-                    </div>
-                    <div class="col-md-4">
-                      <button class="btn btn-black">Apply Coupon</button>
-                    </div>
+                  
+                  <div class="d-flex justify-content-between mb-3">
+                    <span class="text-white-50">Envío</span>
+                    <span class="text-white">Gratis</span>
+                  </div>
+                  
+                  <hr class="border-secondary my-3">
+                  
+                  <div class="d-flex justify-content-between mb-4">
+                    <span class="text-white fw-bold">Total</span>
+                    <span class="text-white fw-bold" id="cart-total">$0.00</span>
                   </div>
                 </div>
-                <div class="col-md-6 pl-5">
-                  <div class="row justify-content-end">
-                    <div class="col-md-7">
-                      <div class="row">
-                        <div class="col-md-12 text-right border-bottom mb-5">
-                          <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <div class="col-md-6">
-                          <span class="text-black">Subtotal</span>
-                        </div>
-                        <div class="col-md-6 text-right">
-                          <strong class="text-black">$230.00</strong>
-                        </div>
-                      </div>
-                      <div class="row mb-5">
-                        <div class="col-md-6">
-                          <span class="text-black">Total</span>
-                        </div>
-                        <div class="col-md-6 text-right">
-                          <strong class="text-black">$230.00</strong>
-                        </div>
-                      </div>
-        
-                      <div class="row">
-                        <div class="col-md-12">
-                          <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Proceed To Checkout</button>
-                        </div>
-                      </div>
-                    </div>
+                
+                <div class="col-md-4">
+                  <button class="btn btn-danger w-100 py-3 checkout-btn mb-3" id="checkout-button" onclick="processCheckout()">
+                    IR A PAGAR
+                  </button>
+                  
+                  <div class="text-center">
+                    <a href="/shop" class="text-white-50 text-decoration-none">
+                      <i class="bi bi-arrow-left me-1"></i> Continuar comprando
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
 		
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 从localStorage获取购物车数据
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartItemsContainer = document.getElementById('cart-items-container');
+      const subtotalElement = document.getElementById('cart-subtotal');
+      const totalElement = document.getElementById('cart-total');
+      const checkoutButton = document.getElementById('checkout-button');
+      const emptyCartMessage = document.querySelector('.empty-cart-message');
+      
+      // 更新购物车显示
+      function updateCartDisplay() {
+        // 清空购物车容器
+        cartItemsContainer.innerHTML = '';
+        
+        let subtotal = 0;
+        
+        // 如果购物车为空，显示提示信息
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = `
+            <div class="text-center py-4 empty-cart-message">
+              <img src="/static/images/empty-cart.svg" alt="Carrito vacío" class="mb-3" style="width: 80px; opacity: 0.5;">
+              <h5 class="text-white-50">Su carrito está vacío</h5>
+              <a href="/shop" class="btn btn-outline-light mt-3">Ver Menú</a>
+            </div>
+          `;
+          subtotalElement.textContent = '$0.00';
+          totalElement.textContent = '$0.00';
+          checkoutButton.disabled = true;
+          return;
+        }
+        
+        checkoutButton.disabled = false;
+        
+        // 为每个购物车项目创建一个卡片
+        cart.forEach((item, index) => {
+          const itemTotal = item.price * item.quantity;
+          subtotal += itemTotal;
+          
+          const cartItemElement = document.createElement('div');
+          cartItemElement.className = 'cart-item mb-3';
+          cartItemElement.innerHTML = `
+            <div class="cart-item-container d-flex align-items-center p-3">
+              <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+              <div class="cart-item-info ms-3">
+                <h5 class="text-white mb-1">${item.name}</h5>
+                <p class="text-white-50 mb-0">$ ${item.price}</p>
+              </div>
+              <div class="quantity-controls ms-auto d-flex align-items-center">
+                <span class="text-white-50 me-3 d-none d-md-block">Cantidad:</span>
+                <div class="d-flex align-items-center quantity-wrapper">
+                  <button class="quantity-btn decrease-quantity" data-index="${index}">-</button>
+                  <span class="quantity-value">${item.quantity}</span>
+                  <button class="quantity-btn increase-quantity" data-index="${index}">+</button>
+                </div>
+                <button class="btn btn-sm btn-outline-danger ms-3 remove-item" data-index="${index}">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+            </div>
+          `;
+          
+          cartItemsContainer.appendChild(cartItemElement);
+        });
+        
+        // 更新总计
+        subtotalElement.textContent = '$' + subtotal.toFixed(2);
+        totalElement.textContent = '$' + subtotal.toFixed(2);
+        
+        // 为增加/减少按钮添加事件监听器
+        setupQuantityButtons();
+      }
+      
+      // 设置数量按钮的事件处理
+      function setupQuantityButtons() {
+        // 增加按钮
+        document.querySelectorAll('.increase-quantity').forEach(button => {
+          button.addEventListener('click', function() {
+            const index = this.dataset.index;
+            cart[index].quantity++;
+            saveAndUpdateCart();
+          });
+        });
+        
+        // 减少按钮
+        document.querySelectorAll('.decrease-quantity').forEach(button => {
+          button.addEventListener('click', function() {
+            const index = this.dataset.index;
+            if (cart[index].quantity > 1) {
+              cart[index].quantity--;
+            } else {
+              cart.splice(index, 1);
+            }
+            saveAndUpdateCart();
+          });
+        });
+        
+        // 移除商品按钮
+        document.querySelectorAll('.remove-item').forEach(button => {
+          button.addEventListener('click', function() {
+            const index = this.dataset.index;
+            cart.splice(index, 1);
+            saveAndUpdateCart();
+          });
+        });
+      }
+      
+      // 保存到localStorage并更新显示
+      function saveAndUpdateCart() {
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartDisplay();
+      }
+      
+      // 处理结账
+      window.processCheckout = function() {
+        // 保存日期和时间到localStorage
+        const deliveryDate = document.getElementById('delivery-date').value;
+        const deliveryTime = document.getElementById('delivery-time').value;
+        
+        if (!deliveryDate || !deliveryTime) {
+          alert('Por favor, seleccione una fecha y hora de entrega.');
+          return;
+        }
+        
+        localStorage.setItem('deliveryDate', deliveryDate);
+        localStorage.setItem('deliveryTime', deliveryTime);
+        
+        // 跳转到结账页面
+        window.location.href = '/checkout';
+      };
+      
+      // 设置今天的日期为送货日期的最小值
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      const formattedDate = `${yyyy}-${mm}-${dd}`;
+      
+      const deliveryDateInput = document.getElementById('delivery-date');
+      if (deliveryDateInput) {
+        deliveryDateInput.min = formattedDate;
+        deliveryDateInput.value = formattedDate;
+      }
+      
+      // 初始化显示
+      updateCartDisplay();
+    });
+  </script>
 
-	{%endblock%}
+  <style>
+    .cart-page {
+      min-height: 80vh;
+      background-color: #121212;
+    }
+    
+    .card {
+      background-color: #1e1e1e !important;
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .cart-item-container {
+      background-color: #262626;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    
+    .cart-item-container:hover {
+      background-color: #303030;
+    }
+    
+    .cart-item-image {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    
+    .quantity-wrapper {
+      background-color: #333;
+      border-radius: 6px;
+      padding: 2px;
+    }
+    
+    .quantity-btn {
+      background-color: transparent;
+      color: white;
+      border: none;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+    
+    .quantity-btn:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+    
+    .quantity-value {
+      display: inline-block;
+      width: 30px;
+      text-align: center;
+      color: white;
+      font-weight: 500;
+    }
+    
+    .form-control {
+      background-color: #262626;
+      border: 1px solid #333;
+      color: white;
+      border-radius: 6px;
+      padding: 12px;
+      height: auto;
+    }
+    
+    .form-control:focus {
+      background-color: #303030;
+      color: white;
+      border-color: #c53030;
+      box-shadow: none;
+    }
+    
+    .checkout-btn {
+      background-color: #c53030;
+      border: none;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+    
+    .checkout-btn:hover:not(:disabled) {
+      background-color: #e53e3e;
+      transform: translateY(-2px);
+    }
+    
+    .checkout-btn:disabled {
+      background-color: #4a4a4a;
+      cursor: not-allowed;
+    }
+  </style>
+{%endblock%}
