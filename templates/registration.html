@@ -1,0 +1,58 @@
+
+{%extends 'base.html'%}
+{%block content%}
+
+            
+            <!-- Login Section Start -->
+            <section id="login">
+                <div class="container">
+
+                        <div class="col-md-6">
+                            <div class="section-header">
+                            <h3>Registration </h3>
+                            </div>
+
+                    <div class="row">
+            
+                            <div class="login-col-1">
+                                <form action="{{ url_for('registracion') }}" method="POST">
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="input-group">
+                                                <span class="input-group-text">
+                                                    <i class="bi bi-envelope"></i>
+                                                </span>
+                                                <input type="text" class="form-control" placeholder="Your Name" required="required" />
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-text">
+                                                    <i class="bi bi-envelope"></i>
+                                                </span>
+                                                <input type="email" class="form-control" placeholder="Your Email" required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="input-group">
+                                                <span class="input-group-text">
+                                                    <i class="bi bi-lock"></i>
+                                                </span>
+                                                <input type="password" class="form-control" placeholder="Your Password" required="required" />
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-text">
+                                                    <i class="bi bi-lock"></i>
+                                                </span>
+                                                <input type="password" class="form-control" placeholder="Repeat Your Password" required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="login-button"><button type="submit">Enviar</button></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+            </section>
+            <!-- Login Section End -->
+            
+{%endblock%}

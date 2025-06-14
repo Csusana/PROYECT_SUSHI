@@ -1,0 +1,79 @@
+{%extends 'base.html'%}
+{%block content%}
+
+		<!-- Start Hero Section -->
+			<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Checkout</h1>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- End Hero Section -->
+
+		
+            <!-- Checkout Section Start -->
+            <section id="checkout">
+                <div class="container">
+                    <div class="row form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Full Name" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Address" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="City" />
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" placeholder="State" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" placeholder="Zip" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="cards">
+                                <p>We Accept:</p>
+                                <img src="img/credit-cards.png" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Name on Card" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Credit card number" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Exp Month" />
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" placeholder="Exp Year" />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" placeholder="CVV" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button">
+                            <button type="submit">Place Order</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Checkout Section End -->
+
+		{%endblock%}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Cart Body container -->
+
+<div class="container">
+  <div class="row mt-3 justify-content-around">
+
+    <div class="col-12 py-3">
+      <h2 class="text-center">Envío gratis TODOS LOS DÍAS</h2>
+    </div>
+
+    <div class="col-10 col-sm-6 py-2 px-4 cart-center cart-header">
+      <input type="date" class="form-control" id="date" value="2025-05-19">
+    </div>
+
+    <div class="col-10 col-sm-6 py-2 px-4 cart-center cart-header">
+      <select class="form-control" id="time">
+        <option>HORARIO</option>
+      </select>
+    </div>
+
+    <!-- Cart Item 1 -->
+    <div class="cart-item">
+      <div class="d-flex justify-content-center align-items-center py-3">
+        <div class="col-4 col-lg-2 px-3">
+          <img src="{{ url_for('static', filename='images/combinado-blue-sea-15.jpg') }}" alt="Image"
+            class="img-fluid rounded d-block">
+        </div>
+        <div class="col-5 col-lg-6 px-3">
+          <h4>Combinado blue sea 15 piezas</h4>
+          <h5>$12.000</h5>
+        </div>
+        <div class="col-3 col-lg-2 p-3 cart-center px-3">
+          <input min="1" value="2" type="number" id="typeNumber" class="form-control text-center" />
+        </div>
+      </div>
+    </div>
+    <!-- End Cart Item 1 -->
+
+    <!-- Cart Item 2 -->
+    <div class="cart-item">
+      <div class="d-flex justify-content-center align-items-center py-3">
+        <div class="col-4 col-lg-2 px-3">
+          <img src="{{ url_for('static', filename='images/combinado-veggie-30.png') }}" alt="Image"
+            class="img-fluid rounded mx-auto d-block">
+        </div>
+        <div class="col-5 col-lg-6 px-3">
+          <h4>Combinado Bio-veggie 30 piezas</h4>
+          <h5>$10.000</h5>
+        </div>
+        <div class="col-3 col-lg-2 p-3 cart-center px-3">
+          <input min="1" value="2" type="number" id="typeNumber" class="form-control text-center" />
+        </div>
+      </div>
+    </div>
+    <!-- End Cart Item 2 -->
+
+    <div class="col-6 text-center py-3">
+      <h3>Subtotal:</h3>
+    </div>
+    <div class="col-6 text-center py-3">
+      <h3>$44.000</h3>
+    </div>
+    <div class="col-8 col-md-3 cart-center">
+      <button type="button" class="btn btn-outline-light btn-pay">IR A PAGAR</button>
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
